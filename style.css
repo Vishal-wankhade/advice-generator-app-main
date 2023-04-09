@@ -1,0 +1,63 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+}
+main{
+  width:100vw;
+  height: 100vh;
+  position: relative;
+  background:hsl(218, 23%, 16%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center-box{
+ position: relative;
+  height: 40%;
+  width: 30%;
+  background: hsl(217, 19%, 24%);
+  border-radius: 15px;
+}
+h5{
+color:  hsl(150, 100%, 66%);
+font-size: 14px;
+}
+h3{
+color:  hsl(193, 38%, 86%);
+font-size: 22px;
+padding: 0px 15px 0px 15px;
+}
+.img{
+  background: url("images/pattern-divider-desktop.svg");
+  height: 20px;
+  width: 90%;
+  background-position: center;
+  background-size: cover;
+  margin:20px auto 0px auto;
+}
+
+.dice{
+  position: absolute;
+  top: 100%;
+  left:50%;
+  height: 50px;
+  width: 50px;
+  background:hsl(150, 100%, 66%);
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.attribution{
+  top: -60px;
+}
+@media screen and (max-width: 500px) {
+.center-box {
+    width: 90%;
+  }
+}

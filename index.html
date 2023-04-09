@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Advice generator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      color: white;
+       margin: auto;
+       left: 50%;
+        transform: translate(-50%, 0%);
+      position: absolute;
+       font-size: 11px;
+       text-align: center;
+       top: 150px;
+     }
+
+    .attribution a
+    {
+       color:  hsl(150, 100%, 66%);
+    font-size: 14px;
+  }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="center-box">
+       <h5>ADVICE #<span class="id"></span></h5>
+       <h3 class="advice"></h3>
+       <div class="img"></div>
+
+       <button type="button" name="button" class="submit" onclick="run()"><div class="dice">
+         <img src="images/icon-dice.svg" alt="dice-pic">
+       </div></button>
+
+    </div>
+  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/Vishal-wankhade">Vishal Wankhade</a>.
+  </div>
+</body>
+<script>
+
+
+const ID =document.querySelector('.id');
+const ADVICE =document.querySelector('.advice');
+const SUBMIT =document.querySelector('.submit');
+
+SUBMIT.addEventListener('click', run)
+run();
+ // fetch('https://api.adviceslip.com/advice')
+ //    .then(function(response){
+ //      return response.json();
+ //  }).then(function(slip){
+ //      const I = slip.id;
+ //      const A = slip.advice;
+ //      ID.innerText = I;
+ //      ADVICE.innerText= A;
+ //  }).catch(error => console.log(error))
+ function run(){
+ fetch('https://api.adviceslip.com/advice')
+  .then(response => response.json())
+  .then(data => {
+    const id = data.slip.id;
+    const advice = `"${data.slip.advice}"`;
+    ID.innerText = id;
+    ADVICE.innerText = advice;
+  })
+  .catch(error => console.log(error));
+}
+
+
+</script>
+</html>
